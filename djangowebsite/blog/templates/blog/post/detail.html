@@ -10,12 +10,24 @@
     <a href="{% url 'blog:post_share' post.id %}">Share this post</a>
 </p>
 
+<!-- similar post -->
+<h2>Similar posts</h2>
+{% for post in similar_posts %}
+<p>
+    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+</p>
+{% empty %}
+<p>No similar posts found.</p>
+{% endfor %}
+
+<!-- comment count -->
 {% with comments.count as total_comments %}
 <h2>
     {{ total_comments }} comment{{ total_comments|pluralize }}
 </h2>
 {% endwith %}
 
+<!-- comments -->
 {% for comment in comments %}
 <div class="comment">
     <p class="info">
@@ -28,6 +40,7 @@
 <p>No comments yet.</p>
 {% endfor %}
 
+<!-- show comment added or show the comment form -->
 {% if new_comment %}
 <h2>Your comment has been added.</h2>
 {% else %}
@@ -38,4 +51,5 @@
     <p><input type="submit" value="Add comment" /></p>
 </form>
 {% endif %}
+
 {% endblock %}
