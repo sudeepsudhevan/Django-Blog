@@ -1,0 +1,108 @@
+/* Blog page styles */
+/* Base styles */
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+a {
+  color: #007bff;
+}
+
+/* Layout */
+
+#content {
+  float: left;
+  width: 70%;
+}
+
+#sidebar {
+  float: left; 
+  width: 25%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+/* Sidebar */
+
+#sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Media queries */
+
+@media (max-width: 600px) {
+
+  #content,
+  #sidebar {
+    width: 100%;
+    float: none;
+    margin-right: 0;
+  }
+
+}
+  
+  #sidebar {
+    padding-left: 0;
+  }
+  
+
+
+.blog h1 {
+  font-size: 36px;
+  margin-bottom: 20px;  
+}
+
+.blog h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.blog h2 a {
+  color: #333;
+  text-decoration: none;
+}
+
+.blog h2 a:hover {
+  color: #007bff;
+}
+
+.blog .date {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.blog p {
+  margin-bottom: 20px;
+}
+
+/* Pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  position: absolute; /* or absolute */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.pagination a {
+  color: #007bff;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #007bff;
+  margin: 0 10px;
+}
+
+.pagination a:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
