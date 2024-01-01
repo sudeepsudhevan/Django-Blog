@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-(yc*4w(v83^umh3w=$c!k-gi0k#&*#^qt7&+wxnrlfduai6d5s"
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -88,9 +89,9 @@ WSGI_APPLICATION = "djangowebsite.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "blog",
+        "NAME": config("DB_NAME"),
         "USER": "postgres",
-        "PASSWORD": "<PASSWORD>",
+        "PASSWORD": config("DB_PASSWORD"),
         "HOST": "localhost",
         "PORT": "5433",
     }
@@ -147,5 +148,5 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # EMAIL_HOST = "smtp.gmail.com"
 # EMAIL_PORT = 587
 # EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = "<EMAIL>"
-# EMAIL_HOST_PASSWORD = "<PASSWORD>"
+# EMAIL_HOST_USER = config("EMAIL")
+# EMAIL_HOST_PASSWORD = config("EMAIL_PASSWORD")
